@@ -1,0 +1,48 @@
+{% extends 'auction/base.html' %}
+
+{% block content %}
+
+<style>
+
+.form-label {
+    margin: 20;
+}
+
+h1 {
+    margin: 50;
+}
+
+</style>
+
+{% if form.errors %}
+<p>There was an error with your form...</p>
+{% endif %}
+
+<h1 class="w3-margin">Register</h1>
+
+<br>
+
+<form action="{% url 'register_user' %}" method=POST>
+    {% csrf_token %}
+
+    <div class="form-label">
+        {{ form.username.label }}
+        {{ form.username }}
+    </div>
+
+    <div class="form-label">
+        {{ form.password1.label }}
+        {{ form.password1 }}
+    </div>
+
+    <div class="form-label">
+        {{ form.password2.label }}
+        {{ form.password2 }}
+    </div>
+
+    <br>
+    <input type="submit" value="submit" class="btn btn-secondary" style="margin: 10;">
+    
+</form>
+
+{% endblock %}

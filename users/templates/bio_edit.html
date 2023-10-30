@@ -1,0 +1,26 @@
+{% extends 'auction/base.html '%}
+
+{% block content %}
+
+<style>
+
+input {
+    text-align: center;
+    position: relative;
+    margin: 50;
+}
+
+</style>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+<center>
+    <input style="width: 50%; height: 100px;" type="text" class="form-control" name="bio" placeholder="Modifica la tua bio">
+    
+    <input type="submit" value="Modifica" class="btn btn-secondary">
+
+</center>
+</form>
+
+{% endblock %}

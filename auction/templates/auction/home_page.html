@@ -1,0 +1,156 @@
+{% extends 'auction/base.html' %}
+
+{% block content %}
+
+<style>
+@keyframes slidebox {
+  from   {left: 100%;}
+  to     {left: 0px;}
+}
+
+
+h1, h4 {
+    margin: 10;
+}
+
+button {
+    display: block;
+    border-radius: 20px;
+    margin: auto;
+    block-size: 100px;
+    font-size: 20px;
+    margin-bottom: 35px;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+button:hover {
+    background-color: rgb(160, 215, 176);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.titles {
+    position: relative;
+    margin-left: 30;
+    animation: slidebox 3s ease;
+    font-family: 'Dancing Script', cursive;
+    font-size: 100px;
+}
+
+.subtitles {
+    position: relative;
+    animation: slidebox 4s;
+    animation-timing-function: ease-out;
+    margin-left: 30;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 35px;
+}
+
+.tryimg {
+    display: inline-block;
+    position: relative;
+    margin-left: 30;
+    margin-bottom: 15;
+    width: 500;
+    height: 350;
+    border-radius: 30px;
+}
+
+.tryp {
+    display: inline-block;
+    position: relative;
+    margin-left: 100;
+    max-width: 600;
+    height: auto;
+    border-radius: 20px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    background-color: rgb(160, 215, 176);
+    top: 85;
+    padding: 20;
+}
+
+
+</style>
+
+
+<html>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Dancing+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<h1 class="titles"><b>FewSteps</b></h1>
+<br>
+<h4 class="subtitles">
+    Few Steps è un'azienda innovativa specializzata nella produzione di scarpe ecosostenibili.
+</h4>
+<h4 class="subtitles">
+    Fondata nel 2023, l'azienda si impegna a ridurre l'impronta ecologica dell'industria calzaturiera.
+</h4>
+
+<br><br>
+
+<div>
+    <div data-aos="slide-left">
+    <img src="../../static/artigiano.jpg" class="tryimg">
+    <p class="tryp">
+    Le scarpe sono realizzate a mano da artigiani esperti, utilizzando <b>materiali riciclati e biodegradabili</b>, tra cui gomma riciclata, tessuti organici,
+    e plastica recuperata dagli oceani. Ogni paio riflette l'abilità e la dedizione degli artigiani che le hanno create.
+    Con un forte impegno per la trasparenza e l'equità, FewSteps assicura che tutti i suoi dipendendenti ricevano un <b>salario equo</b> e lavorino
+    in <b>condizioni sicure</b>, valorizzando le competenze e l'esperienza, e unendo tecniche di produzione tradizionali ed innovative.
+    </p>
+    </div>
+
+    <br>
+
+    <div data-aos="slide-left">
+    <img src="../../static/fonti_energia.jpg" class="tryimg" style="position: relative; bottom: 110px;">
+    <p class="tryp">
+    Il nostro stabilimento di produzione è alimentato al 100% da una combinazione di diverse fonti di <b>energia rinnovabile</b>:
+    <br>
+    <b>Energia Solare</b> : i pannelli solari fotovoltaici sul tetto catturano l'energia solare e la convertono in elettricità.
+    Questa energia viene utilizzate per alimentare l'illuminazione e i sistemi di riscaldamento e raffreddamento.
+    <br>
+    <b>Energia Geotermica</b> : utilizziamo l'energia geotermica per riscaldare il nostro stabilimento durante i mesi invernali.
+    Questo sitema sfrutta il calore naturale della terra, eliminando la dipendenza dai combustibili fossili.
+    <br>
+    <b>Energia Eolica</b> : abbiamo installato turbine eoliche per sfruttare l'energia del vento.
+    Questa energia viene utilizzata per alimentare i nostri uffici e i sistemi di gestione dell'acqua.
+    <br>
+    <b>Acquisto di Energia Verde</b> : per le nostre esigenze energetiche supplementari, acquistiamo energia
+    da fornitori locali che producono elettricità da fonti rinnovabili.
+    </p>
+    </div>
+
+    <br>
+
+    <div data-aos="slide-left">
+    <img src="../../static/Asta.jpg" class="tryimg" style="position: relative; bottom: 80px;">
+    <p class="tryp">
+        La nostra azienda è orgogliosamente impegnata nella sostenibilità, sia nella produzione che nella distribuzione dei nostri prodotti. FewSteps ha scelto di vendere i suoi prodotti attraverso <b>aste online</b> calendarizzate e pubbliche.
+        Le aste online permettono a chiunque, ovunque si trovi, di partecipare, aumentando le possibilità di vendita, riducendo anche l’inquinamento che un’asta fisica potrebbe causare. Inoltre, grazie alla tecnologia della <b>blockchain</b>, ogni fase del processo di vendita è tracciabile, garantendo sicurezza e trasparenza.
+        Ma il nostro impegno non si ferma qui. Essendo leader nel settore della sostenibilità, una parte dei ricavati di ogni singolo paio di scarpe venduto andrà in beneficenza.
+        Con FewSteps, non solo acquisti un prodotto di qualità, ma contribuisci anche a un futuro più sostenibile.
+    </p>
+    </div>
+
+    <br>
+
+    <button data-aos="slide-left"><a href="{% url 'auctions' %}">Accedi alle nostre aste</a></button>
+
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 3000,
+  });
+</script>
+
+</html>
+
+
+{% endblock %}

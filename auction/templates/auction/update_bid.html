@@ -1,0 +1,39 @@
+{% extends 'auction/base.html '%}
+
+{% block content %}
+
+{% load humanize %}
+
+<style>
+
+div.auction {
+    display: inline-block;
+    border: solid 5px;
+    border-radius: 20px;
+    margin: 20;
+    width: 450px;
+    height: 620px;
+}
+
+    
+</style>
+
+<center>   
+    <div class="auction">
+    
+    <h1 class="auction">{{ auction.title }}</h1>
+    <p class="auction">{{ auction.description }}</p>
+    <img class="auction" src="{{ auction.image.url }}" width="300">
+    <p class="auction"><b>Offerta Attuale: {{ auction.current_bid }}€</b></p>
+    <p class="auction">Tempo rimanente: {{ auction.expiration_date|timeuntil }}</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="number" placeholder="Fai un'offerta" name="offer">
+        <input type="submit" value="Place Bid" class="btn btn-secondary">
+    </form>
+    
+    </div>
+</center>
+
+{% endblock %}

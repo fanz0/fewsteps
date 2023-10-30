@@ -1,0 +1,55 @@
+{% extends 'auction/base.html '%}
+
+{% block content %}
+
+{% load humanize %}
+
+<style>
+
+
+div.auction {
+    display: inline-block;
+    border: solid 5px;
+    border-radius: 20px;
+    margin: 20;
+    width: 450px;
+    height: 620px;
+    transition: transform 0.5s;
+}
+
+div.auction:hover {
+    transform: scale(1.1);
+}
+
+</style>
+
+<center>
+<h1 class="auction">Aste Disponibili</h1>    
+</center>
+
+<br><br>
+
+{% for message in messages %}
+
+{{ message }}
+
+{% endfor %}
+
+{% for auction in auctions %}
+
+<center>   
+<div class="auction">
+
+<h1 class="auction">{{ auction.title }}</h1>
+<p class="auction">{{ auction.description }}</p>
+<img class="auction" src="{{ auction.image }}" width="300">
+<p class="auction"><b>Offerta Attuale: {{ auction.current_bid }}€</b></p>
+<p class="auction">Tempo rimanente: {{ auction.expiration_date|timeuntil }}</p>
+<button><a href="{% url 'update_bid' auction.pk %}" style="text-decoration: none;">Offerta</a></button>
+
+</div>
+</center>
+
+{% endfor %}
+
+{% endblock %}
