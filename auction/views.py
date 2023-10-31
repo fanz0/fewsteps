@@ -46,6 +46,8 @@ def auctions(request):
         file_hash = hashlib.sha256()
         if auction.expiration_date <= timezone.now() :
             expire_auction = Auction.objects.get(pk=auction.pk)
+            if not client.hget(str(expire_auction.title), "Vincitore"):
+                expire_auction.delete()
             client.hsetnx(str(auction.title),"Asta", "Terminata")
             dictionary = {
                 "Prodotto": client.keys(str(auction.title))[0].decode("utf-8"),
